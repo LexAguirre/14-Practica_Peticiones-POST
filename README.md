@@ -1,6 +1,6 @@
 ![Logo](img/ucol-logo.jpg)
 
-# Práctica 13: Query string
+# Práctica 14: POST Requests
 
 > Segunda Parcial
 
@@ -13,25 +13,17 @@
 
 ## OBJETIVO
 
-El query string o “cadena de consulta” es un mecanismo comúnmente utilizado para pasar información en peticiones HTTP. Podemos identificar un query string de la siguiente forma:
-
-![WEB](img/WebPage.jpg)
-
-en el encabezado, podemos identificar elementos que hemos abordado previamente, como el protocolo (HTTP/HTTPS), el URL, la ruta (path) para el cual hemos escrito un “route handler”, y después, seguido del signo de interrogación “?”, el “query string”.
-
-Cuando la petición HTTP es del tipo GET, el query string es enviado en el “Header” del paquete HTTP
-
 ![HTTP](img/HTTP.jpg)
 
-En cambio, cuando la petición es mediante POST, el query string es “movido” hacia el “body” y para acceder a su contenido es necesario “parsear” el contenido del “Body” de la petición y obtener la información. La información que “viaja” durante la petición, puede ser en formato de texto o en formato JSON, dependiendo de la necesidad.
+Cuando la petición es mediante el método POST, el query string es “movido” hacia el “body” y para acceder a su contenido es necesario “parsear” el contenido del “Body” de la petición y obtener la información. La información que “viaja” durante la petición, puede ser en formato de texto o en formato JSON, dependiendo de la necesidad.
 
-Para “sacar” la información del Query string, en el caso de un método GET, es relativamente sencillo debido a que “Express” ya hace el “parseo” de lo query string y nos permite acceder a la colección de parámetros mediante la notación del “.” punto.
+Para “sacar” la información del “body”, debemos instalar un “middleware” que nos permita extraer su contenido, ya sea en formato de texto o en formato JSON. Para lograr ese objetivo, instalaremos el paquete “bodyparser” desde la línea de comando
 
-> ENTREGA: JUEVES 28 DE ABRIL DEL 2022
+> ENTREGA: VIERNES 06 DE MAYO DEL 2022
 
 ## EXPLICACIÓN DEL PROCESO
 
-1. Crea una carpeta llamada "practica_12"
+1. Crea una carpeta llamada "practica_14"
 
 2. Inicializa NPM con npm init -y
 
@@ -53,15 +45,15 @@ Para “sacar” la información del Query string, en el caso de un método GET,
 
 11. Ahora en el archivo server.js se colocara un html basico dentro del app.get de la pagina principal del servidor
 
-12. En el app.get de persons se colocara otra llave ademas del Id la cual sera un query string
+12. En el archivo index.ejs se creara un formulario para dos elementos el nombre y el apellido pero ademas se tendra un boton que realizara un Submit
 
-13. y tambien se medificara el archivo de person.ejs para que muestre el ID y el Query string
+13. Pasando al archivo server.js se creara un app.post el cual se ubicara en la direccion /student y lo que enviara es el primer nombre y el apellido en un string (Siendo que anterior mente se tomo el dato del index.ejs)
 
-14. Ahora se ejecuta el comando "npx nodemon server en la terminal y acccede a http://localhost:3000/Person/Ramon?message=hello para observar el resultado
+14. En el app.get de student se colocara un render de index
 
-15. Para continuar se realizo una actividad en la cual teniamos que hacer un ciclo imprimiendo en el server la palabra Hello, Goodbye o Welcome seguido del ID ingresado pero el ciclo sera indicado por otro key que estara dentro del app.get de person, tal key sera nombrado Times
+15. Ahora se ejecuta el comando "npx nodemon server en la terminal y acccede a http://localhost:3000/student para observar el resultado
 
-16. Ahora se ejecuta el comando "npx nodemon server” en la terminal y acccede a http://localhost:3000/Person/Ramon?message=hello&times=3 para observar el resultado
+16. Por ultimo se puede proba ingresar informacion en los cuadros de textos y al precionar el boton se podra observar el resultado
 
 ## RECURSOS
 
